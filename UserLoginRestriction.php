@@ -8,7 +8,7 @@ Plugin URI: http://www.oliver-saenger.de
 Description: PLugin to restrict content to users
 Version: 0.1
 Author: Oliver Sänger
-Author URI: http://automattic.com/wordpress-plugins/
+Author URI: https://github.com/doctordebug/wordpressLoginRestriction
 License: GPLv2 or later
 Text Domain: ulr
 */
