@@ -13,7 +13,10 @@ class UserLoginRestriction {
     private static function init_hooks() {
 		self::$initiated = true;
 		add_action( 'wp', array( 'UserLoginRestriction', 'checkPermissions' ));
-		
+        //register frontend scripts
+        //wp_register_script( $handle, $src, $deps, $ver, $in_footer );
+        //
+       
     }
     
     /**
@@ -41,11 +44,17 @@ class UserLoginRestriction {
 	}
 
     public static function handlePermissionDenied(){
-        echo "PERMISSION DENIED";
+        self::view('login');
+        
+        exit();
     }
 
     public static function handlePermissionGranted(){
-        echo "PERMISSION GRANTED";
+
     }
 
+    public static function view( $name, array $args = array() ) {
+		$file = ULR_PLUGIN_DIR . 'views/'. $name . '.php';
+		include( $file );
+	}
 }
