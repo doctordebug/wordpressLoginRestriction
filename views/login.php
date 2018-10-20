@@ -37,7 +37,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">register</h5>
@@ -46,26 +46,26 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="registerName">User name</label>
+    <input type="email" class="form-control" id="registerName" aria-describedby="nameHelp" placeholder="Enter username">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="registerEmail">Email address</label>
+    <input type="email" class="form-control" id="registerEmail" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword2">Confirm password</label>
-    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+    <label for="registerPassword1">Password</label>
+    <input type="password" class="form-control" id="registerPassword1" placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-primary">Register</button>
-</form>
+  <div class="form-group">
+    <label for="registerPassword2">Confirm password</label>
+    <input type="password" class="form-control" id="registerPassword2" placeholder="Password">
+  </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary submitRegisterBtn">Save changes</button>
       </div>
     </div>
   </div>
@@ -81,8 +81,10 @@
 
 </body>
 <footer>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  const ULR_PLUGIN_URL = '<?php echo ULR_PLUGIN_URL; ?>';
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="<?php echo ULR_PLUGIN_URL . 'js/login.js' ; ?>"></script>
 </footer>

@@ -5,18 +5,19 @@ class UserLoginRestriction {
     private static $initiated = false;
 	
 	public static function init() {
-		if ( ! self::$initiated ) {
+        add_shortcode( 'ulr_logout_button', array( 'UserLoginRestriction', 'registerLogoutButton' ));
+        if ( ! self::$initiated ) {
             self::init_hooks();
-		}
+        }
+
     }
     
     private static function init_hooks() {
 		self::$initiated = true;
 		add_action( 'wp', array( 'UserLoginRestriction', 'checkPermissions' ));
-        //register frontend scripts
-        //wp_register_script( $handle, $src, $deps, $ver, $in_footer );
+        //register logout shortcut
         //
-       
+
     }
     
     /**
@@ -43,9 +44,15 @@ class UserLoginRestriction {
         return false;
 	}
 
+
+
+
+    public static function registerLogoutButton(){
+        return "<a href=" . wp_logout_url( get_permalink() ) . ">Logout</a>";
+    }
+        
     public static function handlePermissionDenied(){
         self::view('login');
-        
         exit();
     }
 
