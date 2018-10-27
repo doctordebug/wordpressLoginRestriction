@@ -13,11 +13,12 @@
    </div>
     <form id="Login">
         <div class="form-group">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+            <input type="text" class="form-control" id="log" placeholder="Login">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <input type="password" class="form-control" id="pwd" placeholder="Password">
         </div>
+        <div class="alert alert-danger errormsg" style="display:none"></div>
         <ul>
             <li>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -25,7 +26,10 @@
                 </button>
             </li>
             <li>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="button" class="btn btn-primary loginBtn">Login</button>
+            </li>
+            <li>
+            <a href="<?php echo wp_logout_url( get_permalink() ); ?>">Logout</a>
             </li>
         </ul>
 

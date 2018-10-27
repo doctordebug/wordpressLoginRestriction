@@ -1,4 +1,4 @@
-$(function(){
+ $(function(){
 
     const AJAX_HANDLER = ULR_PLUGIN_URL + 'classes/utils/AjaxHandler.php';
 
@@ -20,6 +20,28 @@ $(function(){
 
                     location.reload();
                  
+            }});
+        }   
+    );
+
+    $('.loginBtn').click(
+        function(){
+            $.ajax(
+                {
+                method: 'POST',
+                url: AJAX_HANDLER,
+                data: {
+                    action: 'login',
+                    strategy: 'wordpress',
+                    user_login: $('#log').val(),
+                    user_password: $('#pwd').val(),
+                    remember: false
+                },
+                success: function(result){
+                    console.log(result);
+                    $('.errormsg').html(result);
+                    $('.errormsg').show();
+                    //location.reload();
             }});
         }   
     );

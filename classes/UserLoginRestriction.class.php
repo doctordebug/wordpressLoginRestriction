@@ -14,9 +14,8 @@ class UserLoginRestriction {
     
     private static function init_hooks() {
 		self::$initiated = true;
-		add_action( 'wp', array( 'UserLoginRestriction', 'checkPermissions' ));
-        //register logout shortcut
-        //
+        add_action( 'wp', array( 'UserLoginRestriction', 'checkPermissions' ));
+
 
     }
     
@@ -37,13 +36,13 @@ class UserLoginRestriction {
             // Check if the role you're interested in, is present in the array.
             if ( in_array( 'subscriber', $user_roles, true ) || in_array( 'administrator', $user_roles, true )) {
                 // loggedIn user
+                show_admin_bar(false);
                 self::handlePermissionGranted();
                 return true;
             }
         }
         return false;
 	}
-
 
 
 

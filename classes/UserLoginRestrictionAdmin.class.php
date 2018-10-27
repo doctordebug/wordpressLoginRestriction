@@ -28,6 +28,16 @@ class UserLoginRestrictionAdmin {
         self::$initiated = true;
         add_action( 'admin_menu', array( 'UserLoginRestrictionAdmin', 'admin_menu' ) );
         add_action( 'admin_init',  array('UserLoginRestrictionAdmin' , 'register_options' ) ) ;        
+        add_action('admin_init', array('UserLoginRestrictionAdmin' ,'disable_dashboard'));
+
+    }
+
+
+    public static function disable_dashboard() {
+        if (current_user_can('subscriber') && is_admin()) {
+            wp_redirect(home_url());
+            exit;
+        }
     }
     
     public static function admin_menu() {
