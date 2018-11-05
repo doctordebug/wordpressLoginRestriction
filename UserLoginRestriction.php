@@ -28,6 +28,7 @@ define( 'ULR_DELETE_LIMIT', 100000 );
 
 require_once( ULR_PLUGIN_DIR . '/classes/UserLoginRestriction.class.php' );
 require_once( ULR_PLUGIN_DIR . '/classes/UserService.class.php' );
+require_once( ULR_PLUGIN_DIR . '/classes/LoginCustomizer.class.php' );
 
 add_action( 'init', array( 'UserLoginRestriction', 'init' ) );
 

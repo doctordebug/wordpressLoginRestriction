@@ -23,5 +23,14 @@
     
     <?php submit_button(); ?>
 
+    <?php
+
+$query['autofocus[section]'] = 'menu_locations';
+$query['return'] = admin_url( '?page=ulrOptions' );
+$query['url'] = site_url( '/?showUlr=1' );
+$link = add_query_arg( $query, admin_url( 'customize.php' ) );
+?><a href="<?php echo esc_url( $link ); ?>">CUSTOMIZE!</a>
+
+
 </form>
 </div>

@@ -3,33 +3,25 @@
 class UserLoginRestrictionAdmin {
 
     private static $initiated = false;
-    private static $login_page_id = '9b159d05-43f6-4263-a3e6-8389b44b9001';
     
 	public static function init() {
 		if ( ! self::$initiated ) {
             self::init_hooks();
-            //self::init_login_page();
 		}
     }
     
-    private static function init_login_page() {
-        var_dump(self::getIDfromGUID(self::$login_page_guid));
-        $definition = array(
-            'post_type' => 'page',
-            'post_title' => 'Login',
-            'post_status' => 'publish',
-            'post_content' => '[ulr_login_form]',
-            'ID' => self::$login_page_id
-        );
-        // wp_insert_post($definition);
-    }
-
     private static function init_hooks() {
         self::$initiated = true;
         add_action( 'admin_menu', array( 'UserLoginRestrictionAdmin', 'admin_menu' ) );
         add_action( 'admin_init',  array('UserLoginRestrictionAdmin' , 'register_options' ) ) ;        
         add_action('admin_init', array('UserLoginRestrictionAdmin' ,'disable_dashboard'));
 
+        add_action( 'customize_register', array('LoginCustomizer' ,'init' ));
+        add_action( 'wp_head', array('LoginCustomizer' ,'header_output' ));
+        add_action( 'customize_preview_init', array('LoginCustomizer' ,'live_preview' ));
+
+
+        
     }
 
 
@@ -58,10 +50,4 @@ class UserLoginRestrictionAdmin {
 		$file = ULR_PLUGIN_DIR . 'views/'. $name . '.php';
 		include( $file );
 	}
-
-    public static function getIDfromGUID( $guid ){
-        global $wpdb;
-        return $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid=%s", $guid ) );
-    
-    }
 }

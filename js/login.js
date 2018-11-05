@@ -39,9 +39,12 @@
                 },
                 success: function(result){
                     console.log(result);
+                    if(result === 'success'){
+                        location.reload();
+                        return;
+                    }
                     $('.errormsg').html(result);
                     $('.errormsg').show();
-                    //location.reload();
             }});
         }   
     );
