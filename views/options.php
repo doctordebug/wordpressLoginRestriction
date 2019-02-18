@@ -25,7 +25,7 @@
 
     <?php
 
-$query['autofocus[section]'] = 'menu_locations';
+$query['autofocus[section]'] = 'ulr_section';
 $query['return'] = admin_url( '?page=ulrOptions' );
 $query['url'] = site_url( '/?showUlr=1' );
 $link = add_query_arg( $query, admin_url( 'customize.php' ) );

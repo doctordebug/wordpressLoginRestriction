@@ -18,7 +18,7 @@ class UserLoginRestriction {
 
         add_action( 'wp', array( 'UserLoginRestriction', 'checkPermissions' ));
         add_action( 'customize_register', array('LoginCustomizer' ,'init' ));
-        //add_action( 'wp_head', array('LoginCustomizer' ,'header_output' ));
+        add_action( 'wp_head', array('LoginCustomizer' ,'header_output' ));
         add_action( 'customize_preview_init', array('LoginCustomizer' ,'live_preview' ));
     }
     
